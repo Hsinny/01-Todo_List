@@ -1,0 +1,220 @@
+/*------------------------------------*/
+/*  Font                          
+/*------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i')
+
+body 
+  font-family: "Roboto", "微軟正黑體", "蘋果儷中黑", "Apple LiGothic Medium", Arial, Helvetica, sans-serif
+  background-color: $gray-lighter
+
+
+=title($color:$black,$f-weight:500)
+  font-size: 24px
+  font-weight: $f-weight
+  color: $color
+
+.subtitle
+  font-size: 20px
+  font-weight: 500
+
+/*------------------------------------*/
+/*  Section    
+/*------------------------------------*/
+.section
+  +size(640px,auto)
+  max-width: 100%
+  padding: 0 10px
+  margin: 0 auto
+
+/*------------------------------------*/
+/*  Tab List      
+/*------------------------------------*/
+.tab-list
+  +flex(space-around,center)  // 水平分散對齊
+  background-color: $primary
+  margin-bottom: 20px
+  li 
+    padding: 15px 0 10px
+    &.active
+      border-bottom: 5px solid $primary-dark
+
+.tab-control
+  +title($white,400)
+  padding: 25px
+
+
+/*------------------------------------*/
+/*  Add Task Input    
+/*------------------------------------*/
+.input-add
+  +size(100%,65px)
+  color: $gray
+  font-size: 24px
+  line-height: 28px
+  border: 2px solid rgba($gray,100%)
+  border-radius: 5px
+  padding: 20px
+  margin-bottom: 20px
+
+input.input-add[type=text] 
+  color: $gray
+  background-image: url('../images/icon-plus.png')
+  background-position: 30px center 
+  background-repeat: no-repeat
+  font-weight: 300
+  padding-left: 70px
+
+
+/*------------------------------------*/
+/*  Tab Panel     
+/*------------------------------------*/
+.tab-panel
+  display: none
+  &.active
+    display: block
+
+.panel
+  margin-bottom: 8px
+  box-shadow: 0px 4px 4px 0 ($gray)
+  &.active
+    background-color: 
+  
+/*------------------------------------*/
+/*  Panel Header - Width Setting    
+/*------------------------------------*/
+.width-checkbox
+  +width(7%)
+
+.width-panel-title
+  +width(73%)
+
+.width-edit
+  +width(20%)
+  font-size: 24px
+
+
+/*------------------------------------*/
+/*  Panel Header     
+/*------------------------------------*/
+.panel.active
+  .panel-header
+    background-color: $success-light
+
+.panel.completed
+  .checkbox
+    background-color: $primary
+    .fa-check
+      color: $white
+      margin:
+        top: 3px
+        left: 4px
+  .panel-title
+    color: $gray-dark
+    text-decoration: line-through
+    
+.panel-header
+  +flex(flex-start,flex-start)
+  background-color: $gray-lighter
+  padding: 24px 30px
+  // Checkbox
+  .checkbox
+    +size(24px)
+    background-color: $white
+    border-radius: 2px
+    margin-top: 4px
+
+// Panel Title
+.panel-title 
+  +title()
+  margin-bottom: 15px
+
+.icon-status
+  color: $gray-dark
+
+// Edit
+.fa-star
+  &.active
+    &:before
+      font-family: 'Font Awesome 5 Free'
+      font-weight: 900
+      content: "\f005"
+      color: $success
+
+.icon-edit
+  margin-left: 20px
+
+
+/*------------------------------------*/
+/*  Panel Body - Width Setting    
+/*------------------------------------*/
+.width-title-icon
+  +width(5%)
+  margin-top: 2px 
+
+.width-content
+  +width(95%)
+
+.width-50
+  +width(49%)
+  display: inline-block
+
+
+/*------------------------------------*/
+/*  Panel Body   
+/*------------------------------------*/
+
+.panel-body
+  background-color: $gray-lighter
+  padding: 24px 72px
+  .panel-body-content
+    +flex(flex-star, flex-star)
+    margin-bottom: 30px
+  .subtitle
+    margin-bottom: 8px
+
+  .input-date
+    height: 40px
+    border: 0
+    &[type=text] 
+      padding: 8px 16px
+
+  .file-date
+    color: $gray-dark
+    line-height: 1
+  .btn-add-file
+    +size(32px)
+    color: $white
+    background-color: $gray
+    border-radius: 2px
+
+  .textarea-comment
+    +size(100%,120px)
+    border: 0
+    padding: 8px 16px
+
+
+/*------------------------------------*/
+/*  Panel Footer
+/*------------------------------------*/ 
+.panel-footer
+  +flex(space-between,star-top)
+  button
+    width: 50%
+    font-size: 24px
+
+.btn-cancel, .btn-save
+  padding: 15px 0
+
+.btn-cancel
+  color: $danger
+
+.btn-save
+  color: $white
+  background-color: $primary
+
+.status
+  font-size: 24px
+  font-weight: 400
+  font-style: italic
+  color: $gray
+  padding: 0 30px
