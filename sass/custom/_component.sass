@@ -1,0 +1,57 @@
+/*------------------------------------*/
+/*  Font                          
+/*------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700,900')
+// @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900')
+// @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900')
+
+body 
+  font-family: 'Source Sans Pro', "蘋果儷中黑", "Apple LiGothic Medium", Arial, Helvetica, sans-serif
+
+
+/*------------------------------------*/
+/*  My Normalize                    
+/*------------------------------------*/
+*
+  box-sizing: border-box
+
+body 
+  overflow-x: hidden
+
+a 
+  text-decoration: none
+
+button
+  border: 0
+  outline: none
+  cursor: pointer
+
+img 
+  max-width: 100%
+  height: auto
+  +vertical-align()
+
+svg
+  stroke-width: 1
+  fill: transparent
+  stroke: currentColor
+  transition: stroke .1s
+
+ul 
+  list-style-type: none
+  -webkit-margin-before: 0em
+  -webkit-margin-after: 0em
+  -webkit-padding-start: 0px
+
+input, input.form-control
+  outline: none
+
+/* Icon */
+*[class*="fa-"]
+  &:before
+    +mr(1) 
+
+
+/*------------------------------------*/
+/* Basic                  
+/*------------------------------------*/

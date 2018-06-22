@@ -13,88 +13,9 @@
   <meta property="og:description" content="The F2E 前端修煉精神時光屋 第一題 To Do List">
   <meta property="og:url" content="https://github.com/Hsinny">
   <link rel="icon" type="ico" href="images/favicon.ico">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
   <link rel="stylesheet" href="css/style-all.css">
 </head>
 <body>
-  <!-- 老師請略過 navbar -->
-  <nav class="navbar" style="display: none;">
-    <!-- Navbar Icon -->
-    <button id="navbar-toggler" class="navbar-toggler" type="button">
-      <svg class="navbar-toggler-icon" viewBox="0 0 50 37">
-        <line class="line-1" x1="1" y1="1"     x2="49" y2="1"/>
-        <line class="line-2" x1="1" y1="18.41" x2="49" y2="18.41"/>
-        <line class="line-3" x1="1" y1="35.82" x2="49" y2="35.82"/>
-      </svg>
-    </button>
-    <!-- Navbar Big Menu-->
-    <div id="navbar-collapse" class="navbar-collapse">
-      <div class="navbar-head">
-        <!-- Logo -->
-        <div class="navbar-brand">
-          <img src="images/brand-logo.svg" width="80" height="80" alt="Hsinny Brand Logo" title="Hsinny Brand Logo">
-        </div> 
-        <div class="brand-txt">
-          <div class="name">
-            Hsinny
-            <a href="https://github.com/Hsinny" target="_blank" rel="nofollow" id="my-github">
-              <img src="images/icon-github.svg" width="20" height="20" class="icon-github" alt="my github" title="my github">
-            </a>
-            <a href="https://codepen.io/Hsinny/" target="_blank" rel="nofollow" id="my-codepen">
-              <img src="images/icon-codepen.svg" width="20" height="20" class="icon-codepen" alt="my codepen" title="my codepen">
-            </a>
-          </div>
-          <div class="job">前網頁設計師 / 正走在往前端的路上</div>
-        </div>
-        <!-- Close -->
-        <button id="btn-close" class="btn-close" type="button">
-          <svg viewBox="0 0 32 32"><path d="M10,10 L22,22 M22,10 L10,22"></path></svg>
-        </button>
-      </div>
-      <!-- Navi List -->
-      <ul class="navi-menu">
-        <li class="nav-item">
-          <a class="nav-link" href="https://hsinny.github.io/TheF2E-00-signUp/" target="_blank">Weekly F2E #00 - 6/03 </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Weekly F2E #01 - 6/11 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">Coming Soon</span>
-          <a class="nav-link">Weekly F2E #02 - 6/18 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">敬請期待</span>
-          <a class="nav-link">Weekly F2E #03 - 6/25 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">敬請期待</span>
-          <a class="nav-link">Weekly F2E #04 - 7/2 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">敬請期待</span>
-          <a class="nav-link">Weekly F2E #05 - 7/9 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">敬請期待</span>
-          <a class="nav-link">Weekly F2E #06 - 7/16 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">敬請期待</span>
-          <a class="nav-link">Weekly F2E #07 - 7/23 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">敬請期待</span>
-          <a class="nav-link">Weekly F2E #08 - 7/30 </a>
-        </li>
-        <li class="nav-item">
-          <span class="pill">敬請期待</span>
-          <a class="nav-link">Weekly F2E #09 - 8/6 </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
   <!-- Stage 1 Start -->
   <main>
     <section class="section">
@@ -105,7 +26,11 @@
         <li><a class="tab-control" href="#tab-3">Completed</a></li>
       </ul>
       <!-- Add Task -->
-      <input type="text" value="Add Task" class="input-add">
+      <div class="" style="position: relative;">
+        <input type="text" placeholder="新增待辦事項" class="input-add" id="input-task">
+        <button id="btn-addTask">+</button>
+      </div>
+      
 
       <!-- Tab Panel 1-->
       <div id="tab-1" class="tab-panel active">
@@ -270,11 +195,8 @@
     </section>
   </main>
 
-  <!-- <footer class="footer">
-    圖片素材來源為<a href="https://github.com/hexschool/TheF2E" target="_blank" rel="nofollow">六角學院 The F2E活動</a>
-  </footer> -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <!-- <script src="js/signUp.js"></script> -->
+  <script src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" defer></script>
   <script src="js/todo-list.js"></script>
 </body>
 </html>
