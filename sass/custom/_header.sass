@@ -1,3 +1,66 @@
 /*------------------------------------*/
-/*  Navigation     
-/*------------------------------------*/
+/*  Header       
+/*------------------------------------*/ 
+header
+  +size(100%, 60px)
+  +color($gray-100, $gray-600)
+  +flex(start, center)
+  padding: 16px
+  border-bottom: 1px solid $gray-500
+  // box-shadow: 0 0 4px 8px $gray-900
+
+
+/* Add Task */
+.input-addTask
+  width: 280px
+  +color($gray-500, $gray-100)
+  letter-spacing: 1px
+  box-shadow: 0 4px 4px $gray-900
+  &:placeholder
+    color: $gray-500
+    font-size: 14px
+  &[type=text] 
+    color: $gray-500
+  // input 不支援偽元素
+    
+.btn-addTask
+  +size(35px)
+  +color($white,$primary)
+  font-size: 21px
+  border-radius: 50%
+  box-shadow: 0 4px 8px $gray-900
+  position: absolute
+  top: 0
+  right: -1px
+  z-index: 2
+  transition: 0.5s
+  &:hover
+    background-color: darken($primary, 5%)
+    box-shadow: 0 4px 4px $gray-900
+    transition: 0.5s
+
+/* Task Tab */
+.tab-list
+  color: $gray-500
+  +flex(space-between,center)
+  letter-spacing: 1px
+  &:before
+    content: ''
+    +size(1px,35px)
+    background-color: $gray-400
+    margin: 0 40px
+  .tab-control
+    height: 60px
+    padding: 18px 24px
+    display: inline-block
+    &.active
+      border-bottom: 4px solid $primary
+
+/* Logo */
+.brand-logo
+  margin-left: auto // 父層flex，子層可用margin: auto 做到float效果
+  span
+    +mr(1)
+    font-size: 20px
+    letter-spacing: 1px
+    vertical-align: middle

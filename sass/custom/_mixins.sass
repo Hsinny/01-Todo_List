@@ -2,21 +2,17 @@
 /*  Variable                       
 /*------------------------------------*/
 
-//
-// Color system
-//
-
-// stylelint-disable
+/* Color system */
 $white:    #fff !default
 $gray-100: #f8f9fa !default
 $gray-200: #e9ecef !default
-$gray-300: #dee2e6 !default
-$gray-400: #ced4da !default
-$gray-500: #adb5bd !default
-$gray-600: #6c757d !default
-$gray-700: #495057 !default
-$gray-800: #343a40 !default
-$gray-900: #212529 !default
+$gray-300: #9795AC !default  //  text 
+$gray-400: #707070 !default  //  line 
+$gray-500: #53555D !default  //  input
+$gray-600: #353740 !default  //  header / li hover bg
+$gray-700: #2C2F38 !default  //  badge
+$gray-800: #292C35 !default  //  aside bg
+$gray-900: #21212A !default  //  main bg
 $black:    #000 !default
 
 $blue:    #007bff !default
@@ -27,7 +23,6 @@ $red:     #dc3545 !default
 $orange:  #fd7e14 !default
 $yellow:  #ffc107 !default
 $green:   #25b99a !default
-// $green-gradient: linear-gradient(30deg, #01698C 0%, #01F0D9 100%) !default
 $teal:    #20c997 !default
 $cyan:    #17a2b8 !default
 
@@ -82,6 +77,9 @@ $dark:          $gray-800 !default
   margin-right: $mr * 8px
 
 
+=d-inline-block()
+  display: inline-block
+  margin-left: -4px  // inline-block 元件間會有空白間距
 
 
 /*------------------------------------*/
@@ -90,3 +88,6 @@ $dark:          $gray-800 !default
 
 .flex-space-between
   +flex(space-between)
+
+.position-relative
+  position: relative

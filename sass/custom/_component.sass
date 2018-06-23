@@ -1,12 +1,10 @@
 /*------------------------------------*/
 /*  Font                          
 /*------------------------------------*/
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700,900')
-// @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900')
-// @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900')
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900')
 
 body 
-  font-family: 'Source Sans Pro', "蘋果儷中黑", "Apple LiGothic Medium", Arial, Helvetica, sans-serif
+  font-family: 'Poppins', "蘋果儷中黑", "Apple LiGothic Medium", Arial, Helvetica, sans-serif
 
 
 /*------------------------------------*/
@@ -55,3 +53,20 @@ input, input.form-control
 /*------------------------------------*/
 /* Basic                  
 /*------------------------------------*/
+input
+  height: 35px
+  border-radius: 50px
+  padding: 0 24px
+  border: 0
+
+  
+/*------------------------------------*/
+/*  Utilities 通用類別           
+/*------------------------------------*/
+
+/* 溢出的字省略變 ... */
+.ellipsis
+  overflow : hidden
+  text-overflow : ellipsis
+  white-space : nowrap  // 強制不換行
+  // width: 如果放置文字的元件沒給予寬度，需設定寬度 

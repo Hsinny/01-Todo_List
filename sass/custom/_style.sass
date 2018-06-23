@@ -1,290 +1,207 @@
 *
   // border: 1px solid $gray-200
-  
+
 body 
   +size(100vw,100vh)
-  +color($gray-800,$gray-100)
+  background-color: $gray-900
+  font-weight: 300
 
 a 
-  color: $gray-800
+  color: $white
 
-header
-  +size(100%,80px)
-  +color($white,$primary)
-  font-size: 20px
-  letter-spacing: 1px
-  .brand-logo
-    +mr(1)
+button
+  +size(auto, 35px)
 
-.input-addTask
-  +size(300px, 50px)
-  +color($gray-200, rgba($white, 0.2))
-  letter-spacing: 1px
-  border: 0
-  border-radius: 50px
-  padding: 24px
-  &::placeholder
-    color: $white
-    font-size: 14px
-  &[type=text] 
-    color: $white
 
-#btn-addTask
-  +size(50px)
-  +color($primary,$white)
-  font-size: 24px
-  border-radius: 50%
-  position: absolute
-  top: 0
-  right: 0
-  z-index: 2
+/*------------------------------------*/
+/*  Content         
+/*------------------------------------*/
+main
+  color: $white
+  +flex(space-between,start)
 
 .container
-  max-width: 1280px
-  margin: 0 auto
-
-.position-relative
-  position: relative
-
-.flex-between-center
-  +flex(space-between,center)
-
-.flex-between-start
-  +flex(space-between,flex-start)
-
-.tab-list
-  +size(400px,100vh)
-  +color($gray-800,$gray-200)
-  font-size: 20px
-  border-right: 1px solid $gray-400
-  padding: 64px 0
-  li 
-    padding: 16px 24px
-    margin-left: 36px
-    &.active
-      +color($gray-900,$gray-100)
-      font-weight: 700
-      border-right: 5px solid $primary
-    &:hover
-      +color($gray-900, rgba($white, 0.5))
-
-#section-task
-  width: calc(100% - 300px - 72px)
-  padding: 64px 36px
-
-
+  width: 100%  
+ 
 .task
-  +size(100%, auto)
-  border-radius: 5px
-  box-shadow: 0 6px 15px rgba(36,37,38,0.08)
-  li
-    +color($gray-800,$white)
-    border: 1px solid $gray-200
-    padding: 16px 16px
+  li 
+    min-height: 80px
+    padding: 0 0 0 54px
+    border-bottom: 1px solid $gray-700
     position: relative
+    transition: 0.5s
+    &.active
+      background-color: $gray-600 
     &:hover
-      background-color: $gray-100
-      box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10)
+      background-color: $gray-600 
       &:before
         +size(25px)
-        background-color: $primary
-        fill: $white
-        content: url(../images/icon-order.svg)
-        padding: 7px
-        position: absolute
-        left: -40px
-        top: 14px
-        
+        content: url(../images/icon-sort.svg)
+        display: inline-block
+        position: absolute  // 善用before + absolute 
+        left: 13px
+        top: 50%
+        transform: translateY(-50%)
+  .task-name
+    max-width: 50%
+    display: inline-block
+    +mr(4)
 
-.btn-todo
-  +size(35px)
+.btn-check
+  height: 80px
   background-color: transparent
-  svg
-    vertical-align: middle
-
-
-.task-name
-  +size(82%, auto)
-  display: inline-block
-  vertical-align: top
-  margin:
-    top: 7px
-    left: 8px
-
+  padding: 0
+  .icon-check
+    +size(25px)
+    border-radius: 50%
+    border: 2px solid $primary
+    fill: transparent
+  &:hover 
+    & .icon-check
+      fill: $white
+      background-color: $primary
 
 .btn-group
-  display: inline-block
-  float: right 
+  display: flex
+  float: right
+  &:after
+    clear: both
+  button
+    +size(80px)
+    &+ button
+      border-left: 1px solid $gray-500 
+    svg
+      fill: $gray-500
+    &.btn-delete:hover
+      background-color: $red
+      svg
+        fill: $white
+  .icon-favorfill
+    &.active, &:hover
+      fill: $primary
 
-.edit-panel
-  // background-color: $gray-100
-  border-top: 1px solid $primary
-  margin-top: 16px 
-  padding: 24px 45px
-    // top: 24px
-    // left: 45px
+
+/* Edit */
+.panel-edit
+  +color($gray-300, $gray-600)
+  padding: 24px 0
   .edit-item
-    margin-bottom: 16px
-  .subtitle
-    color: $gray-700
-    font-size: 16px
-    font-weight: 400
-    margin-bottom: 8px
-  .edit-item-content
-    margin-left: 24px
+    max-width: 420px
+    font-size: 15px
+    margin:
+      right: 90px 
+      bottom: 24px
+      left: 90px
   .input-date
-    padding: 4px 16px
-  
-  .file
-    color: $blue
-    background-color: $gray-200
-    padding: 4px 16px
-    border-radius: 20px 
+    width: calc((100% - 8px) / 2 )
+    color: $white
+    background-color: rgba($white,0.2)
+    font-weight: 300
     +mr(1)
+    +d-inline-block()
+    &:last-child
+      margin-right: 0
+    &:placeholder
+      // $white
+  .edit-item-content
+    margin-top: 8px
   .add-file
-    +color($blue, $primary)
-    border: 0
-input[type=file]
-  +color($blue, $primary)
-  border: 0
+    +size(100%,32px)
+    +color($white, rgba($white,0.2))
+    border-radius: 5px
+    display: inline-block
+    input
+      display: none
+    svg.icon-add
+      +size(32px)
+      fill: $white
+      background-color: $gray-300
+      border-radius: 5px 0 0 5px
+      padding: 4px
 
   textarea
-    +size(100%, 100px)
-    background-color: $gray-200
+    +size(100%,64px)
+    +color($white, rgba($white,0.2))
+    border-radius: 5px
+    padding: 16px
     border: 0
 
-.buttons
-  margin-left: 24px
-  +flex(space-between)
+  .buttons
+    border-top: 1px solid $gray-500
+    padding: 24px 90px
+    button
+      width: calc((420px - 8px 4px) / 2) 
+      color: $white
+      font-weight: 300
+      border-radius: 5px
+      svg
+        vertical-align: sub  // 解決icon對齊文字問題
+    .btn-cancel
+      border: 1px solid $gray-500
+      transition: 0.5s
+      &:hover
+        background-color: $gray-500
+    .btn-save
+      +color($white,$primary)
+      svg
+        fill: $white
+      &:hover
+        background-color: darken($primary, 8%)
+     
 
-.btn-cancel, .btn-save
-  +size(300px,50px)
 
-.btn-cancel
-  border: 1px solid $gray-400
+/*------------------------------------*/
+/*  Icon         
+/*------------------------------------*/
 
-.btn-save
-  +color($white, $primary)
+  
 
 
-/* Badge*/
-.badge-group
-  margin:
-    top: 8px
-    left: 45px
+/*------------------------------------*/
+/*  狀態          
+/*------------------------------------*/
+#content-completed
+  .btn-check
+    background-color: $primary
+    .icon-check
+      fill: $white
+
+
+/*------------------------------------*/
+/*  Aside          
+/*------------------------------------*/
+aside
+  +size(210px, 100vh)
+  max-width: 210px
+  +color($white, $gray-800)
+
+
+
+/*------------------------------------*/
+/*  Aside          
+/*------------------------------------*/
+
 .badge
-  +color($gray-600, $gray-100)
-  font-size: 13px
-  border: 1px solid $gray-300
-  border-radius: 5px 
-  padding: 4px 8px
+  +color($white, $gray-300)
+  font-size: 14px
+  border-radius: 5px
+  padding: 2px 4px
+
+.badge-pill
+  +color($gray-300,$gray-700)
+  font-size: 14px
+  border-radius: 25px
+  padding: 4px 12px
   +mr(1)
-  .icon
-    +size(20px)
-    fill: $primary
-    vertical-align: bottom
-    
-
-ul#panel-todo:empty:after
-  content: 'You have nothing to-do!'
-
-ul#panel-completed:empty::after
-  content: 'You have yet to complete any tasks.'
-
-
-
-/*------------------------------------*/
-/*  狀態                  
-/*------------------------------------*/
-
-/* 完成狀態 */
-#panel-completed
-  li 
-    opacity: 0.5
-  .icon-check
-    background-color: $primary
-  .task-name
-    color: $gray-400
-    text-decoration: line-through
+  svg
+    margin-bottom: 5px
   
-
-
-/*------------------------------------*/
-/*  iconfont                   
-/*------------------------------------*/
+.badge-group
+  display: inline-block 
+  
 svg
-  background-color: transparent
-svg.icon
-  fill: $primary
-
-.icon-check
-  +size(25px)
-  fill: $white
-  border: 1px solid $primary
-  border-radius: 50%
-  padding: 3px
-  &:hover
-    background-color: $primary
-  &.active
-    background-color: $primary
-    
-
-.icon-close
-  +size(25px)
-  fill: $primary
-  border: 1px solid $primary
-  border-radius: 50%
-  padding: 3px
-  // display: none
-  &:hover
-    fill: $white
-    background-color: $primary
-
-.icon-favorfill
-  +size(25px)
-  fill: $gray-400
-  &:hover
-    fill: $primary
-
-
-
-.task li:hover
-  .icon-close, .icon-favorfill
-    display: inline-block
-    
-
-svg.icon-calendar, svg.icon-link, svg.icon-comment
-  +size(25px)
-  fill: $gray-600
-
-svg.icon-add
-  +size(25px)
-  fill: $white
-  background-color: $primary
-  border-radius: 50%
-  &:hover
-    box-shadow: 0 6px 15px rgba(36,37,38,0.08)
-
-
-.file:before
   +size(20px)
-  content: url(../images/icon-link.svg)
-  display: inline-block
+  fill: $primary
 
-
-.icon-back
-  +size(25px)
-  fill: $gray-400
-
-  
-
-/*------------------------------------*/
-/*  Utilities 通用類別           
-/*------------------------------------*/
-
-/* 溢出的字省略變 ... */
-.ellipsis
-  overflow : hidden
-  text-overflow : ellipsis
-  white-space : nowrap  // 強制不換行
-  // width: 如果放置文字的元件沒給予寬度，需設定寬度 
+.icon
+  +mr(1)
