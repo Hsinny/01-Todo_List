@@ -22,7 +22,13 @@ main
 
 .container
   width: 100%  
- 
+
+// @media (max-width: 991px)
+//   .container
+//     padding: 0 12px
+
+
+
 .task
   li 
     min-height: 80px
@@ -53,6 +59,27 @@ main
     +mr(4)
 .task li.edit-active input.task-name
   border-bottom: 1px solid $white
+
+@media (max-width: 991px)
+  .task 
+    li
+      min-height: 40px
+      // max-height: 100px
+      padding:
+        top: 12px
+        left: 12px
+        bottom: 12px
+        rifht: 12px
+      &:hover
+        &::before
+          display: none
+    .task-name
+      width: 100%
+      max-width: calc(100% - 170spx)
+      height: 32px
+      margin-right: 16px
+
+
 
 .btn-check
   height: 80px
@@ -98,6 +125,19 @@ main
   li:hover 
     .btn-remove
       display: inline
+
+@media (max-width: 991px)
+  .btn-check
+    height: 35px
+  .btn-group
+    float: none
+    position: absolute
+    top: 8px
+    right: 0px
+    button  
+      +size(48px, 40px)
+
+
 
 
 /* Edit */
@@ -186,8 +226,20 @@ main
       &:hover
         background-color: darken($primary, 8%)
      
+@media (max-width: 991px)
+  .panel-edit
+    +color($gray-300, $gray-500)
+    width: calc(100% - 12px)
+    margin-top: 8px
+    .edit-item
+      margin-left: 32px
+      margin-right: 32px
+    .buttons
+      display: flex
+      padding-left: 32px
+      padding-right: 32px
 
-
+    
 /*------------------------------------*/
 /*  Icon         
 /*------------------------------------*/
@@ -200,7 +252,7 @@ main
 /*------------------------------------*/
 #content-completed
   display: none
-  opacity: 0.5
+  opacity: 0.2
   .btn-check
     .icon-check
       fill: $white
@@ -210,15 +262,18 @@ main
 /*------------------------------------*/
 /*  Aside          
 /*------------------------------------*/
-aside
+.aside
   +size(210px, 100vh)
   max-width: 210px
   +color($white, $gray-800)
 
+@media (max-width: 991px)
+  .aside
+    display: none
 
 
 /*------------------------------------*/
-/*  Aside          
+/*  Badge    
 /*------------------------------------*/
 
 .badge
@@ -245,3 +300,19 @@ svg
 
 .icon
   +mr(1)
+
+@media (max-width: 991px)
+  .badge-group
+    width: calc(100% - 32px - 12px)
+    display: flex
+    padding-left: 32px
+
+  .badge
+    font-size: 12px
+    padding: 0 4px
+
+  .badge-pill
+    font-size: 12px
+    svg
+      margin-bottom: 0
+      
