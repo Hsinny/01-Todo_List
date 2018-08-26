@@ -488,7 +488,16 @@ function sortableEl(e) {
 /* 監聽與更新
 /*===================================================================*/
 
-// 新增 todo
+// 新增 todo - 按 + 新增
+btnAddTask.addEventListener('click', addTask, false);
+// 新增 todo - input focus 時，按 Enter 新增
+document.getElementById('input-addTask').addEventListener('keydown', function (e) {
+  var value = this.value;
+  if ((e.code === 'Enter' || e.code === 'NumpadEnter') && value) {
+    addTask();
+  }
+});
+
 btnAddTask.addEventListener('click', addTask, false); 
 
 // 刪除
@@ -522,6 +531,30 @@ updataTask(data);
 /*===================================================================*/
 
 $(document).ready(function () {
+
+  $('.tab-control').each(function () {
+
+   //.on('欲回應的事件','針對目標元件的子集合',function(e){})
+    $(this).on('click', function(e){
+      // Tab 切換顯示
+      e.preventDefault();
+      var $thisTarget = $(this);
+      $thisTarget.parent().addClass('active');
+      $thisTarget.parent().siblings().removeClass('active');
+
+      // 顯示Tab 對應到的內容
+      
+      var id = $thisTarget.attr('id');  // jQuery 取得 id 的方法
+      if (id === "tab-todo"){
+        $('#content-todo').css('display', 'block');
+        $('#content-completed').css('display', 'none');
+      } else if (id === "tab-completed") {
+        $('#content-todo').css('display', 'none');
+        $('#content-completed').css('display', 'block');
+      }
+    });
+  });
+
 
   /*===================================================================*/
   /* Plugin - Datepicker - 取得id觸發函式

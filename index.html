@@ -27,14 +27,14 @@
     </div>
     <!-- Task Tab -->
     <ul class="tab-list">
-      <li>
-        <a class="tab-control active" id="tab-todo" href="#tab-1">
+      <li class="active">
+        <a class="tab-control" id="tab-todo">
           進行中
           <span class="badge" id="counter-todo">0</span>
         </a>
       </li>
       <li>
-        <a class="tab-control" id="tab-completed" href="#tab-2">
+        <a class="tab-control" id="tab-completed">
           已完成
           <span class="badge" id="counter-completed">0</span>
         </a>
@@ -48,13 +48,9 @@
   <main>
     <div class="container">
       <!-- Uncompleted Tasks -->
-      <ul class="task" id="content-todo">
-      </ul>
-      
-      
+      <ul class="task" id="content-todo"></ul>
       <!-- Completed tasks -->
-      <ul class="task" id="content-completed" style="margin-top: 100px;"></ul>
-
+      <ul class="task" id="content-completed"></ul>
       <!-- Edit Panel-->
       <div class="panel-edit">
         <!-- Add Date -->
@@ -110,7 +106,6 @@
         </div>
       </div>
     </div>
-
     <!-- Aside Menu -->
     <aside></aside>
   </main>

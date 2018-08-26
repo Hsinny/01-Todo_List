@@ -469,8 +469,8 @@ header {
     height: 60px;
     padding: 18px 24px;
     display: inline-block; }
-    .tab-list .tab-control.active {
-      border-bottom: 4px solid #25b99a; }
+  .tab-list li.active {
+    border-bottom: 4px solid #25b99a; }
 
 /* Logo */
 .brand-logo {
