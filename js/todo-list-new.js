@@ -341,7 +341,7 @@ function editTask(e) {
 /*===================================================================*/
 
 function saveTask(e){
-
+     
   if (e.target.className == 'btn-save') {
     var li = e.target.parentNode.parentNode.parentNode;
   } else if (e.target.innerHTML == '<use xlink:href="#icon-copy"></use>') {
@@ -355,12 +355,19 @@ function saveTask(e){
   var index = li.dataset.index;                              // 重複code
   var ulId = li.parentNode.id;                               // 重複code
 
-  if (ulId == 'content-todo') {   
+  if (ulId == 'content-todo') {
+    var taskNameEl = li.parentNode.querySelectorAll('.task-name');
+    console.log(taskNameEl);
+    data.todo[index].name = taskNameEl[index].value;
     data.todo[index].date = inputDate.value;
     // data.todo[index].time = inputTime.value;
     data.todo[index].fileName = fileName.textContent;
     data.todo[index].comment = taskComment.value;   
   } else {
+    var taskNameEl = li.parentNode.querySelectorAll('.task-name');
+    console.log(taskNameEl);
+
+    data.completed[index].name = taskNameEl[index].value;
     data.completed[index].date = inputDate.value;
     // data.completed[index].time = inputTime.value;
     data.completed[index].fileName = fileName.textContent;
