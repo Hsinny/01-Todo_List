@@ -676,9 +676,12 @@ main {
 /*------------------------------------*/
 /*  狀態 */
 /*------------------------------------*/
-#content-completed .btn-check .icon-check {
-  fill: #fff;
-  background-color: #25b99a; }
+#content-completed {
+  display: none;
+  opacity: 0.5; }
+  #content-completed .btn-check .icon-check {
+    fill: #fff;
+    background-color: #25b99a; }
 
 /*------------------------------------*/
 /*  Aside */

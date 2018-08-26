@@ -278,10 +278,18 @@ function doneTask(e){
   var ulId = li.parentNode.id;                               // 重複code
 
   if (ulId == 'content-todo') {                              // 重複code
-    data.completed.push(data.todo[index]);
+    if (data.todo[index].star) {
+      data.completed.unshift(data.todo[index]);              // 有星號，轉換過去已完成在列表會置頂
+    } else {
+      data.completed.push(data.todo[index]);
+    }
     data.todo.splice(index, 1);                              // 重複code
   } else {
-    data.todo.push(data.completed[index]);  
+    if (data.completed[index].star) {                        // 有星號，轉回進行中在列表會置頂
+      data.todo.unshift(data.completed[index]);  
+    } else {
+      data.todo.push(data.completed[index]);  
+    }
     data.completed.splice(index, 1);                         // 重複code
   }
   localStorage.setItem('todoTask', JSON.stringify(data));  // 重複code
@@ -531,7 +539,7 @@ updataTask(data);
 /*===================================================================*/
 
 $(document).ready(function () {
-
+  
   $('.tab-control').each(function () {
 
    //.on('欲回應的事件','針對目標元件的子集合',function(e){})
