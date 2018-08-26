@@ -14,6 +14,7 @@
   <meta property="og:url" content="https://github.com/Hsinny">
   <link rel="icon" type="ico" href="images/favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="css/style-all.css">
 </head>
 <body>
@@ -21,18 +22,22 @@
     <!-- Add Task -->
     <div class="position-relative">
       <img src="images/icon-list.svg" width="20" height="20" class="icon">
-      <input type="text" placeholder="新增待辦事項 ..." class="input-addTask" id="input-addtask">
+      <input type="text" placeholder="新增待辦事項 ..." class="input-addTask" id="input-addTask">
       <button class="btn-addTask" id="btn-addTask">+</button>
     </div>
     <!-- Task Tab -->
     <ul class="tab-list">
       <li>
-        <a class="tab-control active" id="tab-todo" href="#tab-1">進行中
-          <span class="badge" id="number-todo">99</span></a>
+        <a class="tab-control active" id="tab-todo" href="#tab-1">
+          進行中
+          <span class="badge" id="counter-todo">0</span>
+        </a>
       </li>
       <li>
-        <a class="tab-control" id="tab-completed" href="#tab-2">已完成
-          <span class="badge" id="number-completed">99</span></a>
+        <a class="tab-control" id="tab-completed" href="#tab-2">
+          已完成
+          <span class="badge" id="counter-completed">0</span>
+        </a>
       </li>
     </ul>
     <!-- Logo -->
@@ -44,84 +49,66 @@
     <div class="container">
       <!-- Uncompleted Tasks -->
       <ul class="task" id="content-todo">
-       <li>
-          <button class="btn-check">
-            <svg class="icon icon-check" aria-hidden="true"><use xlink:href="#icon-check"></use></svg>
-          </button>
-          <div class="task-name ellipsis">
-            今日任務：完成 Todolist Project
-          </div>
-          <!-- Badge Pill -->
-          <div class="badge-group">
-            <span class="badge-pill">
-              <svg class="icon icon-calendar" aria-hidden="true"><use xlink:href="#icon-calendar"></use></svg>
-              <span class="date">6月22日</span>
-              <span class="time">12:59</span>
-            </span>
-            <span class="badge-pill">
-              <svg class="icon icon-link" aria-hidden="true"><use xlink:href="#icon-link"></use></svg>
-              <span class="file-link">1</span>
-            </span>
-            <span class="badge-pill">
-              <svg class="icon icon-commentfill" aria-hidden="true"><use xlink:href="#icon-commentfill"></use></svg>1
-            </span>
-          </div>
-          <!-- Button -->
-          <div class="btn-group">
-            <button>
-              <svg class="icon icon-favorfill" aria-hidden="true"><use xlink:href="#icon-favorfill"></use></svg>
-            </button>
-            <button class="btn-delete">
-              <svg class="icon icon-delete" aria-hidden="true"><use xlink:href="#icon-delete"></use></svg>
-            </button>
-          </div>
-       </li>
       </ul>
-      <!-- Edit -->
-      <form class="panel-edit">
+      
+      
+      <!-- Completed tasks -->
+      <ul class="task" id="content-completed" style="margin-top: 100px;"></ul>
+
+      <!-- Edit Panel-->
+      <div class="panel-edit">
         <!-- Add Date -->
         <div class="edit-item">
-          <svg class="icon icon-calendar" aria-hidden="true"><use xlink:href="#icon-calendar"></use></svg>
+          <svg class="icon icon-calendar" aria-hidden="true">
+            <use xlink:href="#icon-calendar"></use>
+          </svg>
           新增日期
           <div class="edit-item-content">
-            <input type="text" class="input-date input-datepicker" placeholder="選擇日期" id="id1">
-            <input type="text" class="input-date input-datepicker" placeholder="選擇日期" id="id2">
+            <input type="text" class="input-date input-datepicker" placeholder="選擇日期" id="input-date">
+            <input type="text" class="input-date input-datepicker" placeholder="選擇日期" id="input-time">
           </div>
         </div>
         <!-- Add File -->
         <div class="edit-item">
-          <svg class="icon icon-link" aria-hidden="true"><use xlink:href="#icon-link"></use></svg>
+          <svg class="icon icon-link" aria-hidden="true">
+            <use xlink:href="#icon-link"></use>
+          </svg>
           附檔
           <div class="edit-item-content">
             <label class="add-file">
-              <svg class="icon icon-add" aria-hidden="true"><use xlink:href="#icon-add"></use></svg>
-              <input type="file" accept=".jpg, .jpeg, .png" class="add-file" multiple>
+              <svg class="icon icon-add" aria-hidden="true">
+                <use xlink:href="#icon-add"></use>
+              </svg>
+              <input type="file" accept=".jpg, .jpeg, .png" class="add-file" multiple id="input-file">
             </label>
           </div>
         </div>
         <!-- Add Comment -->
         <div class="edit-item">
-          <svg class="icon icon-comment" aria-hidden="true"><use xlink:href="#icon-comment"></use></svg>
+          <svg class="icon icon-comment" aria-hidden="true">
+            <use xlink:href="#icon-comment"></use>
+          </svg>
           備註
           <div class="edit-item-content">
-            <textarea placeholder="新增詳細資訊"></textarea>
+            <textarea placeholder="新增詳細資訊" id="textarea-comment"></textarea>
           </div>
         </div>
         <!-- Btn Save & Cancel -->
         <div class="buttons">
-          <button class="btn-cancel">
-            <svg class="icon icon-close" aria-hidden="true"><use xlink:href="#icon-close"></use></svg>
+          <button class="btn-cancel" id="btn-cancel">
+            <svg class="icon icon-close" aria-hidden="true">
+              <use xlink:href="#icon-close"></use>
+            </svg>
             取消
           </button>
-          <button class="btn-save" type="submit">
-            <svg class="icon icon-copy" aria-hidden="true"><use xlink:href="#icon-copy"></use></svg>
+          <button class="btn-save" id="btn-save">
+            <svg class="icon icon-copy" aria-hidden="true">
+              <use xlink:href="#icon-copy"></use>
+            </svg>
             確認新增
           </button>
         </div>
-      </form>
-      
-      <!-- Completed tasks -->
-      <ul class="task" id="content-completed" style="margin-top: 100px;"></ul>
+      </div>
     </div>
 
     <!-- Aside Menu -->
@@ -131,7 +118,8 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"></script>
-  <script src="js/todo-list.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.6.1/Sortable.min.js"></script> -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/todo-list-new.js"></script>
 </body>
 </html>

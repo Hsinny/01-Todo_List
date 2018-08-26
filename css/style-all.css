@@ -542,10 +542,19 @@ main {
       -ms-transform: translateY(-50%);
       transform: translateY(-50%); }
 
+.task input.task-name {
+  border-radius: 0; }
+
 .task .task-name {
   max-width: 50%;
+  color: #fff;
+  background: transparent;
   display: inline-block;
+  padding: 8px 0;
   margin-right: 32px; }
+
+.task li.edit-active input.task-name {
+  border-bottom: 1px solid #fff; }
 
 .btn-check {
   height: 80px;
@@ -576,18 +585,24 @@ main {
       border-left: 1px solid #53555D; }
     .btn-group button svg {
       fill: #53555D; }
-    .btn-group button.btn-delete:hover {
+    .btn-group button.btn-remove:hover {
       background-color: #dc3545; }
-      .btn-group button.btn-delete:hover svg {
+      .btn-group button.btn-remove:hover svg {
         fill: #fff; }
-  .btn-group .icon-favorfill.active, .btn-group .icon-favorfill:hover {
+  .btn-group .btn-star.active svg {
     fill: #25b99a; }
+
+.task li:hover .btn-remove {
+  display: inline; }
 
 /* Edit */
 .panel-edit {
   color: #9795AC;
   background: #353740;
-  padding: 24px 0; }
+  padding: 24px 0;
+  display: none; }
+  .panel-edit.active {
+    display: block; }
   .panel-edit .edit-item {
     max-width: 420px;
     font-size: 15px;
@@ -661,10 +676,9 @@ main {
 /*------------------------------------*/
 /*  狀態 */
 /*------------------------------------*/
-#content-completed .btn-check {
+#content-completed .btn-check .icon-check {
+  fill: #fff;
   background-color: #25b99a; }
-  #content-completed .btn-check .icon-check {
-    fill: #fff; }
 
 /*------------------------------------*/
 /*  Aside */
