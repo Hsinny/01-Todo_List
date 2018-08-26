@@ -357,7 +357,6 @@ function saveTask(e){
 
   if (ulId == 'content-todo') {
     var taskNameEl = li.parentNode.querySelectorAll('.task-name');
-    console.log(taskNameEl);
     data.todo[index].name = taskNameEl[index].value;
     data.todo[index].date = inputDate.value;
     // data.todo[index].time = inputTime.value;
@@ -365,8 +364,6 @@ function saveTask(e){
     data.todo[index].comment = taskComment.value;   
   } else {
     var taskNameEl = li.parentNode.querySelectorAll('.task-name');
-    console.log(taskNameEl);
-
     data.completed[index].name = taskNameEl[index].value;
     data.completed[index].date = inputDate.value;
     // data.completed[index].time = inputTime.value;
@@ -590,6 +587,81 @@ $(document).ready(function () {
     $(inputId).datepicker({
       format: 'yyyy-mm-dd',
       language: 'zh-CN',
+    });
+  });
+  
+
+  /*========================================================*/
+  /* GA Event Tracking
+  /*========================================================*/
+
+  $('#input-addTask').click(function () {
+    gtag('event', 'add-task', {
+      'event_category': 'add-task',
+      'event_label': 'add-task'
+    });
+  });
+
+  $('.tab-control').click(function () {
+    gtag('event', 'view-tab-content', {
+      'event_category': 'view-tab-content',
+      'event_label': 'view-tab-content'
+    });
+  });
+
+  $('.task-name').click(function () {
+    gtag('event', 'task-name-edit', {
+      'event_category': 'task-name-edit',
+      'event_label': 'task-name-edit'
+    });
+  });
+
+  $('#input-date').click(function () {
+    gtag('event', 'date-edit', {
+      'event_category': 'date-edit',
+      'event_label': 'date-edit'
+    });
+  });
+
+  $('#input-file').click(function () {
+    gtag('event', 'add-file', {
+      'event_category': 'add-file',
+      'event_label': 'add-file'
+    });
+  });
+
+  $('#textarea-comment').click(function () {
+    gtag('event', 'textarea-edit', {
+      'event_category': 'textarea-edit',
+      'event_label': 'textarea-edit'
+    });
+  });
+
+  $('#btn-cancel').click(function () {
+    gtag('event', 'edit-cancel', {
+      'event_category': 'edit-cancel',
+      'event_label': 'edit-cancel'
+    });
+  });
+  
+  $('#btn-save').click(function () {
+    gtag('event', 'edit-save', {
+      'event_category': 'edit-save',
+      'event_label': 'edit-save'
+    });
+  });
+ 
+  $('.btn-star').click(function () {
+    gtag('event', 'star-change', {
+      'event_category': 'star-change',
+      'event_label': 'star-change'
+    });
+  });
+
+  $('.btn-remove').click(function () {
+    gtag('event', 'task-remove', {
+      'event_category': 'task-remove',
+      'event_label': 'task-remove'
     });
   });
 
