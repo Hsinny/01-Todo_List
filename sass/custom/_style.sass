@@ -115,7 +115,7 @@ main
       bottom: 24px
       left: 90px
   .input-date
-    width: calc((100% - 8px) / 2 )
+    width: 100%  // calc((100% - 8px) / 2 )
     color: $white
     background-color: rgba($white,0.2)
     font-weight: 300
@@ -130,16 +130,32 @@ main
   .add-file
     +size(100%,32px)
     +color($white, rgba($white,0.2))
+    line-height: 32px
     border-radius: 5px
     display: inline-block
-    input
-      display: none
+    padding-left: 40px
+    position: relative
+    input   // 疊在 add btn 上面
+      +size(32px)
+      opacity: 0
+      position: absolute
+      left: 0
     svg.icon-add
       +size(32px)
       fill: $white
       background-color: $gray-300
       border-radius: 5px 0 0 5px
       padding: 4px
+      position: absolute
+      left: 0
+    .add-file-name
+      width: calc(100% - 70px)
+      height: 100%
+      text-overflow: ellipsis   //  檔名太長，超過一行顯示...隱藏
+      white-space : nowrap
+      overflow: hidden
+      position: absolute
+      left: 48px
 
   textarea
     +size(100%,64px)

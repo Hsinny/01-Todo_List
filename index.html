@@ -48,7 +48,7 @@
   <main>
     <div class="container">
       <!-- Uncompleted Tasks -->
-      <ul class="task active" id="content-todo"></ul>
+      <ul class="task" id="content-todo"></ul>
       <!-- Completed tasks -->
       <ul class="task" id="content-completed"></ul>
       <!-- Edit Panel-->
@@ -60,8 +60,8 @@
           </svg>
           新增日期
           <div class="edit-item-content">
-            <input type="text" class="input-date input-datepicker" placeholder="選擇日期" id="input-date">
-            <input type="text" class="input-date input-datepicker" placeholder="選擇日期" id="input-time">
+            <input type="text" class="input-date input-datepicker" placeholder="選擇日期" id="input-date" autocomplete="off">
+            <!-- <input type="text" class="input-date input-datepicker" placeholder="時間" id="input-time" autocomplete="off"> -->
           </div>
         </div>
         <!-- Add File -->
@@ -76,6 +76,7 @@
                 <use xlink:href="#icon-add"></use>
               </svg>
               <input type="file" accept=".jpg, .jpeg, .png" class="add-file" multiple id="input-file">
+              <span class="add-file-name" id="fileName"></span>
             </label>
           </div>
         </div>
@@ -101,7 +102,7 @@
             <svg class="icon icon-copy" aria-hidden="true">
               <use xlink:href="#icon-copy"></use>
             </svg>
-            確認新增
+            確認
           </button>
         </div>
       </div>

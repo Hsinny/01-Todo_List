@@ -9,6 +9,7 @@ var panelEdit = document.querySelector('.panel-edit');
 var inputDate = document.getElementById('input-date');
 var inputTime = document.getElementById('input-time');
 var inputFile = document.getElementById('input-file');
+var fileName  = document.getElementById('fileName');
 var taskComment = document.getElementById('textarea-comment');
 var btnCancel = document.getElementById('btn-cancel');
 var btnSave = document.getElementById('btn-save');
@@ -317,16 +318,22 @@ function editTask(e) {
   var ulId = li.parentNode.id;
   if (ulId == 'content-todo') {
     inputDate.value = data.todo[index].date;
-    inputTime.value = data.todo[index].time;
-    // inputFile.value = data.todo[index].fileName; // file讀取需要除錯
+    // inputTime.value = data.todo[index].time;
+    fileName.textContent = data.todo[index].fileName;
     taskComment.value = data.todo[index].comment;
   } else {
     inputDate.value = data.completed[index].date;
-    inputTime.value = data.completed[index].time;
-    // inputFile.value = data.completed[index].fileName; // file讀取需要除錯
+    // inputTime.value = data.completed[index].time;
+    fileName.textContent = data.completed[index].fileName;
     taskComment.value = data.completed[index].comment;
   }
+
+  document.getElementById('input-file').addEventListener('change', function (e) {
+    var files = e.target.files;     // 為物件 FileList {0: File(4639), length: 1 }
+    fileName.textContent = files[0].name;
+  }, false);
 }
+
 
 
 /*===================================================================*/
@@ -350,11 +357,13 @@ function saveTask(e){
 
   if (ulId == 'content-todo') {   
     data.todo[index].date = inputDate.value;
-    data.todo[index].time = inputTime.value;
+    // data.todo[index].time = inputTime.value;
+    data.todo[index].fileName = fileName.textContent;
     data.todo[index].comment = taskComment.value;   
   } else {
     data.completed[index].date = inputDate.value;
-    data.completed[index].time = inputTime.value;
+    // data.completed[index].time = inputTime.value;
+    data.completed[index].fileName = fileName.textContent;
     data.completed[index].comment = taskComment.value;
   }
   localStorage.setItem('todoTask', JSON.stringify(data)); // 重複code

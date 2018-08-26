@@ -610,7 +610,7 @@ main {
     margin-bottom: 24px;
     margin-left: 90px; }
   .panel-edit .input-date {
-    width: calc((100% - 8px) / 2);
+    width: 100%;
     color: #fff;
     background-color: rgba(255, 255, 255, 0.2);
     font-weight: 300;
@@ -626,17 +626,35 @@ main {
     height: 32px;
     color: #fff;
     background: rgba(255, 255, 255, 0.2);
+    line-height: 32px;
     border-radius: 5px;
-    display: inline-block; }
+    display: inline-block;
+    padding-left: 40px;
+    position: relative; }
     .panel-edit .add-file input {
-      display: none; }
+      width: 32px;
+      height: 32px;
+      opacity: 0;
+      position: absolute;
+      left: 0; }
     .panel-edit .add-file svg.icon-add {
       width: 32px;
       height: 32px;
       fill: #fff;
       background-color: #9795AC;
       border-radius: 5px 0 0 5px;
-      padding: 4px; }
+      padding: 4px;
+      position: absolute;
+      left: 0; }
+    .panel-edit .add-file .add-file-name {
+      width: calc(100% - 70px);
+      height: 100%;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      position: absolute;
+      left: 48px; }
   .panel-edit textarea {
     width: 100%;
     height: 64px;
