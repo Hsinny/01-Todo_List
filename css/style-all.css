@@ -272,59 +272,17 @@ template {
 [hidden] {
   display: none; }
 
-/* My Setting */
-* {
-  vertical-align: middle;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
-  *:hover {
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s; }
-
-button {
-  line-height: 1;
-  background-color: transparent; }
-
-/*------------------------------------*/
-/*  Variable */
-/*------------------------------------*/
-/* Color system */
-/*------------------------------------*/
-/*  Mixin */
-/*------------------------------------*/
-/*------------------------------------*/
-/*  Common */
-/*------------------------------------*/
-.flex-space-between {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; }
-
-.position-relative {
-  position: relative; }
-
-/*------------------------------------*/
-/*  Font */
-/*------------------------------------*/
-body {
-  font-family: 'Poppins', "蘋果儷中黑", "Apple LiGothic Medium", Arial, Helvetica, sans-serif; }
-
 /*------------------------------------*/
 /*  My Normalize */
 /*------------------------------------*/
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  vertical-align: middle; }
+  *:hover {
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; }
 
 body {
   overflow-x: hidden; }
@@ -335,12 +293,9 @@ a {
 button {
   border: 0;
   outline: none;
-  cursor: pointer; }
-
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle; }
+  cursor: pointer;
+  line-height: 1;
+  background-color: transparent; }
 
 svg {
   stroke-width: 1;
@@ -359,28 +314,75 @@ ul {
 input, input.form-control {
   outline: none; }
 
-/* Icon */
-*[class*="fa-"]:before {
-  margin-right: 8px; }
+/*------------------------------------*/
+/*  Variable */
+/*------------------------------------*/
+/* Color system */
+/*------------------------------------*/
+/*  Mixin */
+/*------------------------------------*/
+/*------------------------------------*/
+/*  Utilities 通用類別 */
+/*------------------------------------*/
+.flex-space-between {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.position-relative {
+  position: relative; }
+
+/* 溢出的字省略變 ... */
+.task .task-name, .panel-edit .add-file .add-file-name, .ellipsis {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+/*------------------------------------*/
+/*  Font */
+/*------------------------------------*/
+body {
+  font-family: 'Poppins', "Microsoft JhengHei", "微軟正黑體", "蘋果儷中黑", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
 /*------------------------------------*/
 /* Basic */
 /*------------------------------------*/
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #21212A;
+  font-weight: 300; }
+
+a {
+  color: #fff; }
+
+button {
+  height: 35px; }
+
 input {
   height: 35px;
   border-radius: 50px;
   padding: 0 24px;
   border: 0; }
 
-/*------------------------------------*/
-/*  Utilities 通用類別 */
-/*------------------------------------*/
-/* 溢出的字省略變 ... */
-.ellipsis {
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle; }
+
+/* Icon */
+*[class*="fa-"]:before {
+  margin-right: 8px; }
 
 /*------------------------------------*/
 /*  Header */
@@ -429,6 +431,7 @@ input {
   background: #25b99a;
   font-size: 21px;
   border-radius: 50%;
+  padding: 0px;
   -webkit-box-shadow: 0 4px 8px #21212A;
   box-shadow: 0 4px 8px #21212A;
   position: absolute;
@@ -543,23 +546,10 @@ input {
 /*------------------------------------*/
 /* Footer */
 /*------------------------------------*/
-body {
-  width: 100vw;
-  height: 100vh;
-  background-color: #21212A;
-  font-weight: 300; }
-
-a {
-  color: #fff; }
-
-button {
-  width: auto;
-  height: 35px; }
-
 /*------------------------------------*/
 /*  Content */
 /*------------------------------------*/
-main {
+.main {
   color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -625,8 +615,7 @@ main {
     .task li:hover::before {
       display: none; }
   .task .task-name {
-    width: 100%;
-    max-width: calc(100% - 170spx);
+    max-width: calc(100% - 140px);
     height: 32px;
     margin-right: 16px; } }
 
@@ -735,10 +724,6 @@ main {
     .panel-edit .add-file .add-file-name {
       width: calc(100% - 70px);
       height: 100%;
-      -o-text-overflow: ellipsis;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
       position: absolute;
       left: 48px; }
   .panel-edit textarea {

@@ -83,7 +83,7 @@ $dark:          $gray-800 !default
 
 
 /*------------------------------------*/
-/*  Common      
+/*  Utilities 通用類別           
 /*------------------------------------*/
 
 .flex-space-between
@@ -91,3 +91,10 @@ $dark:          $gray-800 !default
 
 .position-relative
   position: relative
+
+/* 溢出的字省略變 ... */
+%ellipsis, .ellipsis
+  overflow : hidden
+  text-overflow : ellipsis
+  white-space : nowrap  // 強制不換行
+  // width: 如果放置文字的元件沒給予寬度，需設定寬度 

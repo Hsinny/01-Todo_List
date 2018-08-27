@@ -310,14 +310,39 @@ template
   display: none
 
 
-/* My Setting */
+/*------------------------------------*/
+/*  My Normalize                    
+/*------------------------------------*/
 *
-  vertical-align: middle
   box-sizing: border-box
+  vertical-align: middle
   &:hover
     transition: 0.5s
-  
+
+body 
+  overflow-x: hidden
+
+a 
+  text-decoration: none
+
 button
+  border: 0
+  outline: none
+  cursor: pointer
   line-height: 1
   background-color: transparent
 
+svg
+  stroke-width: 1
+  fill: transparent
+  stroke: currentColor
+  transition: stroke .1s
+
+ul 
+  list-style-type: none
+  -webkit-margin-before: 0em
+  -webkit-margin-after: 0em
+  -webkit-padding-start: 0px
+
+input, input.form-control
+  outline: none

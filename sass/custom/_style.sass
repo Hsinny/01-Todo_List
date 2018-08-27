@@ -1,33 +1,12 @@
-*
-  // border: 1px solid $gray-200
-
-body 
-  +size(100vw,100vh)
-  background-color: $gray-900
-  font-weight: 300
-
-a 
-  color: $white
-
-button
-  +size(auto, 35px)
-
-
 /*------------------------------------*/
 /*  Content         
 /*------------------------------------*/
-main
+.main
   color: $white
   +flex(space-between,start)
 
 .container
   width: 100%  
-
-// @media (max-width: 991px)
-//   .container
-//     padding: 0 12px
-
-
 
 .task
   li 
@@ -51,12 +30,13 @@ main
   input.task-name
     border-radius: 0    
   .task-name
-    // +size(100%, auto)
     max-width: 50%
     +color($white, transparent)
     display: inline-block
     padding: 8px 0
     +mr(4)
+    @extend %ellipsis  //  超過一行顯示...隱藏
+
 .task li.edit-active input.task-name
   border-bottom: 1px solid $white
 
@@ -64,7 +44,6 @@ main
   .task 
     li
       min-height: 40px
-      // max-height: 100px
       padding:
         top: 12px
         left: 12px
@@ -74,8 +53,7 @@ main
         &::before
           display: none
     .task-name
-      width: 100%
-      max-width: calc(100% - 170spx)
+      max-width: calc(100% - 140px)
       height: 32px
       margin-right: 16px
 
@@ -107,7 +85,6 @@ main
     svg
       fill: $gray-500
     &.btn-remove
-      // display: none
       &:hover
         background-color: $red
         svg
@@ -191,9 +168,7 @@ main
     .add-file-name
       width: calc(100% - 70px)
       height: 100%
-      text-overflow: ellipsis   //  檔名太長，超過一行顯示...隱藏
-      white-space : nowrap
-      overflow: hidden
+      @extend %ellipsis  //  檔名太長，超過一行顯示...隱藏
       position: absolute
       left: 48px
 
